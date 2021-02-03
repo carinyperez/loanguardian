@@ -1,0 +1,26 @@
+.homepage {
+    background-color: #fff2e3; 
+    display: flex; 
+    flex-direction: row; 
+    justify-content: space-between;
+    align-items: center;
+    min-height: 50vh;  
+    line-height: 20px;
+    
+    .text {
+        display: flex; 
+        flex-direction: column; 
+        align-items: center;
+        padding: 20px; 
+
+        h1 {
+            color: #fa640a; 
+            font-size: 24px;
+        }
+
+    }
+   .home-image {
+        min-width: 20vh;
+        height: 300px;  
+    }
+}

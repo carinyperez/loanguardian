@@ -1,0 +1,22 @@
+.header {
+    display: flex;
+    flex-direction: row;  
+    justify-content: space-between;
+
+
+    .header-signin {
+        font-size: 15px;
+        padding-right: 30px; 
+        padding-top: 10px; 
+        font-weight: lighter; 
+    }
+    .header-image {
+        height: 30px;
+        padding: 10px; 
+
+    }
+
+    img {
+        padding-right: 20px;
+    }
+} 

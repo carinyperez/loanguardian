@@ -1,0 +1,25 @@
+.about-us-container {
+    margin-top: 50px; 
+
+    h1 {
+        text-align: left; 
+        font-size: 30px;
+        padding-left: 30px;  
+    }
+    .about-us {
+        display: grid; 
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 20px;
+        padding: 20px 30px;
+        text-align: left; 
+        line-height: 20px; 
+
+        h2 {
+            font-size: 24px; 
+            
+        }
+        p {
+            font-size: 12px; 
+        }
+    }
+    }

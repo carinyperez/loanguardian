@@ -2,12 +2,14 @@ import React from 'react';
 import './homepage.styles.scss';
 import logo from '../../assets/home_buy.jpg'
 import Button from '../../components/button/button.component';
-import { About } from '../../components/about/about.component';
+import About from '../../components/about/about.component';
+import Upload from '../../components/upload/upload.component';
 
 
 const HomePage = () =>  {
     return(
         <div>
+            <Upload/>
             <div className='homepage'>
                 <div className='text'> 
                     <h1>Loans made easy</h1>

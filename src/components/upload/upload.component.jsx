@@ -1,8 +1,7 @@
-import React from 'react'; 
-
+import React from 'react';
+import typingDnaClient from './config';
 
 const tdna = require('./typingdna'); 
-
 
 class Upload extends React.Component {
     constructor(props) {
@@ -12,7 +11,18 @@ class Upload extends React.Component {
 
         }
 
-
+    }
+    
+    checkTypingPattern = () => {
+        typingDnaClient.check(
+          { userId : 'testuser',
+            type: '2',
+            device: 'desktop'
+          },
+          function(error, result) {
+            if (error) { console.error(error) }
+            console.log(result);
+          });
     }
     
 
@@ -44,6 +54,7 @@ class Upload extends React.Component {
                 <input type="text" placeholder='Type in your email' value={this.state.inputValue} onChange={this.handleChange} />
                 </label>
                 <input type="submit" value="Submit" />
+                <button onClick={this.checkTypingPattern}>Check Typing Pattern</button>
           </form>
             </div>
         )

@@ -1,0 +1,25 @@
+.text {
+    display: flex; 
+    flex-direction: column; 
+    align-content: center;
+    margin: 10px auto; 
+    padding: 10px 100px; 
+
+    .text-box {
+        height: 20vh; 
+        width: 60vw; 
+        font-size: 15px; 
+        margin: 20px auto; 
+
+    }
+    button { 
+        margin-bottom: 20px; 
+        // margin: 0px auto; 
+    }
+
+    h2 {
+        color: #ff9000;
+        font-weight: lighter; 
+    }
+
+}

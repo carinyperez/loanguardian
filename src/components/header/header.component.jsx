@@ -1,9 +1,7 @@
-import React from 'react'; 
 import { Link } from 'react-router-dom';
 import logo from '../../assets/logo.svg';
 import { auth } from '../../firebase/firebase.utils';
 import './header.styles.scss'; 
-
 
 const Header = ({currentUser}) => {
     return (
@@ -14,13 +12,13 @@ const Header = ({currentUser}) => {
             </a>
             </div>
             <div className='links'>
-                <Link className='header-link' to='/upload'>UPLOAD DOCUMENTS</Link>
                 <Link className='header-link' to='/feedback'> SUBMIT FEEDBACK</Link>
+                <Link className='header-link' to='/typingdna'> UPLOAD DOCUMENTS</Link>
                 {
                     currentUser ? 
-                    <div className='header-link' onClick ={() => auth.signOut()}> SIGN OUT</div>
+                    <Link className='header-link' onClick ={() => auth.signOut()} to='/'> SIGN OUT</Link>
                     :
-                    <Link className='header-link' to='/upload'>SIGN IN</Link>
+                    <Link className='header-link' to='/login'>LOGIN</Link>
                 }
             </div>
         </div>

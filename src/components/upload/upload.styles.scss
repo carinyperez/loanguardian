@@ -1,0 +1,24 @@
+.upload {
+
+    display: flex; 
+    flex-direction: column;
+    width: 50%;
+    margin: auto;
+    padding: 20px 10px;
+
+
+    .upload-box {
+        width: 100%; 
+        border: 3px solid #ff9000;
+        
+    }
+
+    .upload {
+        margin-top: 10px; 
+    }
+
+    .form {
+        margin-top: 20px; 
+    }
+
+}

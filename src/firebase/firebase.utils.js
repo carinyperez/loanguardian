@@ -1,6 +1,7 @@
 import firebase from 'firebase/app';
 import 'firebase/firestore';
 import 'firebase/auth';
+import 'firebase/database';
 
 const config = {
     apiKey: "AIzaSyA8tVEcidojQ8-uT_1l-aBtvzOswXJdf_E",
@@ -13,17 +14,14 @@ const config = {
 };
 
 
-// use userAuth object to query database for a document reference object 
 export const createUserProfileDocument = async(userAuth, additionalData) => {
     if (!userAuth) return; 
-    // "current place" but no actual data 
     const userRef = firestore.doc(`users/${userAuth.uid}`);
-    console.log(userRef); 
+
     // get the collection reference 
     const collectionRef = firestore.collection('users'); 
     // use CRUD methods on a doc ref to get a snapshot 
     const snapShot = await userRef.get(); 
-    console.log(snapShot); 
 
 
     // if snapshot does not exiist create an object reference
@@ -42,22 +40,35 @@ export const createUserProfileDocument = async(userAuth, additionalData) => {
             console.log('error creating user', error.message); 
         }
     }
-
     return userRef; 
 }
 
 
+export const writeUserData = async (userId,typingPattern) => {
+    const userRef = firestore.doc(`users/${userId}`);
+    // get the collection reference 
+    const collectionRef = firestore.collection('users'); 
+    // use CRUD methods on a doc ref to get a snapshot 
+    const snapShot = await userRef.get();
+    const data = snapShot.data(); 
+    userRef.set({
+        typingPattern : typingPattern,
+    },{ merge: true }); 
+}
 
 firebase.initializeApp(config);
 
 export const auth = firebase.auth();
 export const firestore = firebase.firestore();
 
+
 const provider = new firebase.auth.GoogleAuthProvider();
 provider.setCustomParameters({ prompt: 'select_account' });
 export const signInWithGoogle = () => {
     auth.signInWithPopup(provider);
+    
 }
+
 export default firebase;
 
 

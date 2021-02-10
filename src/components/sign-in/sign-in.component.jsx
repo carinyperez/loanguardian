@@ -3,7 +3,7 @@ import FormInput from '../form-input/form-input.component';
 import CustomButton from '../custom-button/custom-button.component';
 import {auth, signInWithGoogle } from '../../firebase/firebase.utils';
 import { SignInContainer,ButtonsContainer } from './sign-in.styles';
-
+import {withRouter} from 'react-router-dom'; 
 
 class SignIn extends React.Component {
   constructor(props) {
@@ -16,12 +16,26 @@ class SignIn extends React.Component {
 
   handleSubmit = async event => {
     event.preventDefault();
-    const {email, password} = this.state; 
+    const {email, password} = this.state;
+    const {history} = this.props; 
     try {
       await auth.signInWithEmailAndPassword(email, password); 
+      if (this.state.email !== null && this.state.password !== null) {
+          history.push(`/uploaddocs`) 
+      }
       this.setState({ email: '', password: '' });
     } catch(error) {
-      console.error(error); 
+      alert(error); 
+    }
+  };
+
+  handleGoogleSubmit = async () => { 
+    const {history} = this.props; 
+    try {
+      await signInWithGoogle();
+      history.push(`/uploaddocs`);
+    } catch(error) {
+      alert(error); 
     }
     
   };
@@ -57,7 +71,7 @@ class SignIn extends React.Component {
           />
           <ButtonsContainer>
             <CustomButton type='submit'> Sign in </CustomButton>
-            <CustomButton type='button' onClick={signInWithGoogle}>
+            <CustomButton type='submit' onClick={this.handleGoogleSubmit}>
               Sign In With Google
             </CustomButton>
           </ButtonsContainer>
@@ -67,4 +81,4 @@ class SignIn extends React.Component {
   }
 }
 
-export default SignIn;
+export default withRouter(SignIn);

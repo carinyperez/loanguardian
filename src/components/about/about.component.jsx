@@ -1,4 +1,3 @@
-import React from 'react';
 import './about.styles.scss'; 
 import fastLogo from '../../assets/fast_process.svg';
 import honestLogo from '../../assets/honest_advice.svg';
@@ -22,8 +21,8 @@ export const About = () => {
             </div>
             <div className='options'>
                 <img src={optionsLogo} alt="Fast process"/>
-                <h2>Flexible, affordable options</h2>
-                <p>We analyze your information against our wide range of products in real time, matching you to a loan that works for you.</p>
+                <h2>We care about your feedback</h2>
+                <p>We want to make our process better. Let us know how we are doing by submitting your feedback. </p>
             </div>
             <div className='secure'>
                 <img src={secureLogo} alt="Secure process"/>

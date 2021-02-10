@@ -1,11 +1,14 @@
 import React from 'react';
 import FormInput from '../form-input/form-input.component'; 
 import CustomButton from '../custom-button/custom-button.component';
-import {auth, createUserProfileDocument} from '../../firebase/firebase.utils'; 
+import {auth, createUserProfileDocument, writeUserData} from '../../firebase/firebase.utils'; 
 import { SignUpContainer,TitleContainer  } from './sign-up.styles';
+import { Link } from 'react-router-dom';
+import { tdna } from '../typingdna/typingdna';
+import typingDnaClient from '../typingdna/config';
+
 
 class SignUp extends React.Component {
-
     constructor() {
         super(); 
         this.state = {
@@ -15,7 +18,7 @@ class SignUp extends React.Component {
             confirmPassword: ''
         }
     }
-
+    
     handleSubmit = async event => {
         event.preventDefault(); 
         const {displayName, email, password, confirmPassword} = this.state; 
@@ -25,16 +28,18 @@ class SignUp extends React.Component {
         }
         try {
             const {user} = await auth.createUserWithEmailAndPassword(email, password); 
-            await createUserProfileDocument(user, {displayName}); 
+            await createUserProfileDocument(user, {displayName});
             this.setState({
                 displayName: '',
                 email: '',
                 password: '', 
                 confirmPassword: ''
-            }); 
+            });
         } catch(error) {
-            console.error(error); 
-        }
+            alert(error); 
+        } 
+
+
     }
     
     handleChange = event => {

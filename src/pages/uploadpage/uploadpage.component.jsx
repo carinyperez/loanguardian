@@ -1,4 +1,7 @@
 import React from 'react';
+import SignIn from '../../components/sign-in/sign-in.component';
+import SignUp from '../../components/sign-up/sign-up.component';
+
 import './uploadpage.styles.scss'; 
 
 
@@ -12,7 +15,9 @@ class UploadPage extends React.Component {
     }
     render() {
         return(
-            <div>
+            <div className='login'>
+                <SignIn/>
+                <SignUp/>
             </div>
         )
     }

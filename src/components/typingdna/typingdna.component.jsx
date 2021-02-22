@@ -82,7 +82,6 @@ class TypingDna extends React.Component {
         const typingPattern = this.getTypingPattern(); 
         const quality = this.getQuality();
         const {history} = this.props; 
-        console.log(currentUser, typingPattern, quality); 
 
         typingDnaClient.auto(
             currentUser, 
@@ -114,7 +113,8 @@ class TypingDna extends React.Component {
         const {quote} = this.state; 
             return (
                 <div className='text'>
-                    <h2>You need to authenticate before you can upload documents. To authenticate type in the  2 quotes below</h2>
+                    <h2>You need to authenticate before you can upload documents. 
+                    To authenticate type in the quote below(typos allowed)</h2>
                     <p id='quote'>{quote}</p>
                     <textarea id='textarea' type='text' placeholder='Type in the quote shown above' value={this.state.inputValue} className='text-box' onChange={this.handleChange} onKeyUp={this.highlightText}></textarea>
                     <CustomButton onClick={this.saveTypingPattern}>Authenticate </CustomButton>

@@ -51,7 +51,7 @@ class App extends React.Component {
   return (
     <div className='App'>
       <Header currentUser={this.state.currentUser}/>
-      <div className='header'>
+      <div className='main-header'>
         <Switch>
         <Route exact path='/' component={HomePage}/>
         <Route exact path='/login' 

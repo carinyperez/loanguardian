@@ -15,9 +15,7 @@ class Upload extends React.Component  {
         return (
             null 
         )
-    } 
-    
-    else if(currentUser) {
+    } else if(currentUser) {
         const enrollment = this.props.location.state.enrollment;
         const score = this.props.location.state.highConfidence;
         if(enrollment > 0) {
@@ -39,8 +37,7 @@ class Upload extends React.Component  {
             )
 
         }
-    } 
-    else {
+    } else {
         this.props.history.push('/typingdna'); 
             return (
                 null
